@@ -11,6 +11,10 @@ function Sidebar() {
     setIsExpanded(prevTab => (prevTab === tab ? null : tab));
   };
 
+  const handleSubtabClick = (event) => {
+    event.stopPropagation();
+  };
+
   return (
     <div className='sidebar'>
         <div id='logo-div'>
@@ -32,7 +36,7 @@ function Sidebar() {
             <p><FaAngleRight /></p>
           </div>
           {isExpanded === "tab3" && (
-            <div className='expandable-tabs-hidden'>
+            <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
               <p >All Teachers</p>
               <p >Add Teacher</p>
             </div>
@@ -45,7 +49,7 @@ function Sidebar() {
             <p><FaAngleRight /></p>
           </div>
           {isExpanded === "tab4" && (
-            <div className='expandable-tabs-hidden'>
+            <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
               <p >All Students</p>
               <p >Student Admission</p>
             </div>
@@ -58,7 +62,7 @@ function Sidebar() {
             <p><FaAngleRight /></p>
           </div>
           {isExpanded === "tab5" && (
-            <div className='expandable-tabs-hidden'>
+            <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
               <p >All Parents</p>
               <p >Add Parent</p>
             </div>
@@ -71,7 +75,7 @@ function Sidebar() {
             <p><FaAngleRight /></p>
           </div>
           {isExpanded === "tab6" && (
-            <div className='expandable-tabs-hidden'>
+            <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
               <p >Mark Attendance</p>
               <p >See Attendance</p>
             </div>
