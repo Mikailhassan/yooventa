@@ -8,8 +8,14 @@
     font-weight: 400;
     font-style: normal;
 }
+
+
 html{
     scrollbar-width: thin;
+}
+
+button{
+    cursor: pointer;
 }
 
 .app-component{
@@ -33,7 +39,7 @@ html{
 
 #logo-div{
     height: 64px;
-    background-color: rgb(255, 177, 32);
+    background-color: #ffb120;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,12 +99,12 @@ html{
 
 
 #navbar{
-    height: 60px;
+    height: 80px;
     background-color: #fff;
 }
 
 .pages-body {
-    padding: 32px 24px;
+    padding: 64px 24px;
     background-color: #f3f3f3;
 }
 
@@ -113,19 +119,19 @@ html{
     margin-bottom: 24px;
 }
 
-/* Container that handles horizontal scrolling */
+
 .table-container {
-    overflow-x: auto; /* Enable horizontal scroll */
+    overflow-x: auto;
     display: block;
-    width: 100%; /* Makes sure the container takes up available space */
+    width: 100%;
     scrollbar-width: thin;
 }
 
-/* Prevent the table content from wrapping */
+
 .table {
     border-collapse: collapse;
-    white-space: nowrap; /* Prevent text wrapping */
-    width: 100%; /* Maintain full width */
+    white-space: nowrap;
+    width: 100%;
     border: 1px solid #8dd6d6
 }
 
@@ -133,6 +139,10 @@ html{
 .table th {
     border-bottom: 1px solid #8dd6d6;
     padding: 8px 24px 8px 8px;
+}
+
+thead th:not(:last-child) {
+    border-right: 1px solid #8dd6d6;
 }
 
 .table tr:nth-child(even) {
@@ -151,19 +161,108 @@ html{
     color: #9ee9e9;
 }
 
+.form-flex-div{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form-photo-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phoooto-div{
+    margin: 32px 0;
+}
+
+.phoooto-btns button{
+    padding: 8px 18px;
+    border: none;
+    border-radius: 4px;
+}
+
+.phoooto-btns button:first-child{
+    margin-right: 8px;
+    background-color: #143838;
+    color: #9ee9e9;
+}
+
+.phoooto-btns button:last-child{
+    background-color: #ff7272;
+    color: white;
+}
+
+.phoooto-btns button:last-child:enabled {
+    background-color: red;
+    color: white;
+}
 
 
+.middle-diiiiiv{
+    width: 30%;
+}
+
+.middle-diiiiiv > div,
+.last-diiiiiv > div{
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 16px;
+}
+
+.middle-diiiiiv > div label,
+.last-diiiiiv > div label{
+    margin-bottom: 4px;
+}
 
 
+.last-diiiiiv > div input,
+.last-diiiiiv > div select,
+.middle-diiiiiv > div input,
+.middle-diiiiiv > div textarea{
+    border: 1px solid #8dd6d6;
+    height: 32px;
+    border-radius: 4px;
+    width: 100%;
+    padding: 0 8px;
+}
+.last-diiiiiv > div input:focus,
+.last-diiiiiv > div select:focus,
+.middle-diiiiiv > div input:focus,
+.middle-diiiiiv > div textarea:focus{
+    outline: none;
+    border: 1px solid #0e5252;
+}
 
+.middle-diiiiiv > div textarea{
+    resize: none;
+    padding: 8px;
+}
 
+.middle-diiiiiv > div textarea{
+    height: 120px;
+}
 
+.last-diiiiiv{
+    width: 30%;
+}
 
+.submit-foooorm{
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+}
 
-
-
+.submit-foooorm button{
+    padding: 8px 48px;
+    border: none;
+    border-radius: 4px;
+    background-color: #143838;
+    color: #9ee9e9;
+}
 
 
 
 #footer{
+
 }

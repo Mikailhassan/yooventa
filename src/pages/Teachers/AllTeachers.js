@@ -1,207 +1,23 @@
 // src/components/Teachers/AllTeachers.jsx
 import React from 'react';
+import { AiOutlineMessage } from "react-icons/ai";
+import { MdOutlineMail } from "react-icons/md";
+import { FiEdit } from "react-icons/fi";
+import { MdOutlineDeleteForever } from "react-icons/md";
 
 const AllTeachers = () => {
-  const teachers = [
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-    {
-      photo: 'https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png',
-      name: 'Omar Mahat',
-      gender: 'Male',
-      email: 'john@example.com',
-      phone: '1234567890',
-      doj: '2020-01-01',
-      dob: '1990-05-20',
-      address: '123 Main St',
-      contact: 'Emergency Contact'
-    },
-  ];
+
+  const [teachers, setTeachers] = React.useState([]);
+
+  const fetchTeachers = async () => {
+    const response = await fetch('http://localhost:4000/teachers');
+    const data = await response.json();
+    setTeachers(data);
+  };
+
+  React.useEffect(() => {
+    fetchTeachers();
+  }, []);
 
   return (
     <div className='pages-body'>
@@ -212,10 +28,12 @@ const AllTeachers = () => {
             <thead>
               <tr>
                 <th>Photo</th>
+                <th>ID NO</th>
                 <th>Name</th>
-                <th>Gender</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>TSC NO</th>
+                <th>Gender</th>
                 <th>DOJ</th>
                 <th>DOB</th>
                 <th>Address</th>
@@ -227,15 +45,17 @@ const AllTeachers = () => {
               {teachers.map((teacher, index) => (
                 <tr key={index}>
                   <td><img src={teacher.photo} alt={teacher.name} width={"24px"} /></td>
+                  <td>{teacher.nationalId}</td>
                   <td>{teacher.name}</td>
-                  <td>{teacher.gender}</td>
                   <td>{teacher.email}</td>
                   <td>{teacher.phone}</td>
+                  <td>{teacher.tscNo}</td>
+                  <td>{teacher.gender}</td>
                   <td>{teacher.doj}</td>
                   <td>{teacher.dob}</td>
                   <td>{teacher.address}</td>
-                  <td>{teacher.contact}</td>
-                  <td><button>Edit</button> <button>Delete</button></td>
+                  <td><AiOutlineMessage />  <MdOutlineMail /></td>
+                  <td><FiEdit /> <MdOutlineDeleteForever /></td>
                 </tr>
               ))}
             </tbody>

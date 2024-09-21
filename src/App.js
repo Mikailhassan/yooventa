@@ -4,6 +4,8 @@ import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AllTeachers from './pages/Teachers/AllTeachers';
+import AddTeacherForm from './pages/Teachers/AddTeacherForm';
+import TeacherDetails from './pages/Teachers/TeacherDetails';
 
 const App = () => {
   return (
@@ -11,10 +13,12 @@ const App = () => {
       <Sidebar />
       <div className="content">
         <Navbar />
-        <AllTeachers />
+        {/* <AllTeachers /> */}
+        {/* <AddTeacherForm /> */}
+        <TeacherDetails/>
         <Routes>
         </Routes>
-        <Footer/>
+        {/* <Footer/> */}
       </div>
     </div>
   );
