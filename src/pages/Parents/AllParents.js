@@ -1,59 +1,66 @@
-// src/components/Parents/AllParents.jsx
+// src/components/Teachers/AllTeachers.jsx
 import React from 'react';
+import { AiOutlineMessage } from "react-icons/ai";
+import { MdOutlineMail } from "react-icons/md";
+import { FiEdit } from "react-icons/fi";
+import { MdOutlineDeleteForever } from "react-icons/md";
 
 const AllParents = () => {
-  const parents = [
-    // Sample data, replace with actual data
-    {
-      photo: 'url/to/photo1',
-      name: 'Alice Brown',
-      gender: 'Female',
-      email: 'alice@example.com',
-      phone: '9876543210',
-      doj: '2020-09-01',
-      dob: '1985-02-14',
-      address: '789 Maple St',
-      contact: 'Emergency Contact'
-    },
-    // Add more parents as needed
-  ];
+
+  const [parents, setParents] = React.useState([]);
+
+  const fetchParents = async () => {
+    const response = await fetch('http://localhost:4000/teachers');
+    const data = await response.json();
+    setParents(data);
+  };
+
+  React.useEffect(() => {
+    fetchParents();
+  }, []);
 
   return (
-    <div>
-      <h1>All Parents</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Photo</th>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>DOJ</th>
-            <th>DOB</th>
-            <th>Address</th>
-            <th>Contact</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {parents.map((parent, index) => (
-            <tr key={index}>
-              <td><img src={parent.photo} alt={parent.name} width="50" /></td>
-              <td>{parent.name}</td>
-              <td>{parent.gender}</td>
-              <td>{parent.email}</td>
-              <td>{parent.phone}</td>
-              <td>{parent.doj}</td>
-              <td>{parent.dob}</td>
-              <td>{parent.address}</td>
-              <td>{parent.contact}</td>
-              <td><button>Edit</button> <button>Delete</button></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className='pages-body'>
+      <div className='table-wrapper-div'>
+        <h1 className='table-wrapper-div-h1'>Parents</h1>
+        <div className='table-container'>
+          <table className='table'>
+            <thead>
+              <tr>
+                <th>Photo</th>
+                <th>ID NO</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>DOB</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {parents.map((parent, index) => (
+                <tr key={index}>
+                  <td><img src={parent.photo} alt={parent.name} width={"24px"} /></td>
+                  <td>{parent.nationalId}</td>
+                  <td>{parent.name}</td>
+                  <td>{parent.email}</td>
+                  <td>{parent.phone}</td>
+                  <td>{parent.gender}</td>
+                  <td>{parent.dob}</td>
+                  <td>{parent.address}</td>
+                  <td><AiOutlineMessage />  <MdOutlineMail /></td>
+                  <td><FiEdit /> <MdOutlineDeleteForever /></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+
+
   );
 };
 

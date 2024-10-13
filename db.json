@@ -1,256 +1,107 @@
 {
+  "schools": [
+    {
+      "id": "580e",
+      "schoolInfo": {
+        "name": "Maalimin Primary School",
+        "email": "omarmahat702@gmail.com",
+        "phone": "0725375325",
+        "address": "Maalimin",
+        "county": "Garissa",
+        "postalCode": "56 - 70100"
+      },
+      "classSystem": "Form",
+      "range": {
+        "start": "1",
+        "end": "2"
+      },
+      "streams": {
+        "1": [
+          "A"
+        ],
+        "2": [
+          "A"
+        ]
+      }
+    },
+    {
+      "id": "c03b",
+      "schoolInfo": {
+        "name": "Garissa High School",
+        "email": "antonymwangikr@gmail.com",
+        "phone": "0725375325",
+        "address": "Gazunta",
+        "county": "Garissa",
+        "postalCode": "56 - 70100"
+      },
+      "classSystem": "Form",
+      "range": {
+        "start": "1",
+        "end": "4"
+      },
+      "streams": {
+        "1": [
+          "Stream A",
+          "Stream B"
+        ],
+        "2": [
+          "Stream A",
+          "Stream B"
+        ],
+        "3": [
+          "Stream A",
+          "Stream B"
+        ],
+        "4": [
+          "Stream A",
+          "Stream B"
+        ]
+      }
+    }
+  ],
+  "students": [
+    {
+      "id": "53ac",
+      "admNo": "9508",
+      "photo": {},
+      "name": "Abukar Bashow",
+      "gender": "Male",
+      "classOrGrade": "Form 1",
+      "stream": "A",
+      "doj": "2024-10-14",
+      "dob": "2024-10-23",
+      "parent": "Saadiya",
+      "address": "Bula xagar",
+      "fingerprint": null
+    },
+    {
+      "id": "ce93",
+      "admNo": "9508",
+      "photo": {},
+      "name": "Abukar Bashow",
+      "gender": "Male",
+      "classOrGrade": "Form 2",
+      "stream": "A",
+      "doj": "2024-10-13",
+      "dob": "2024-10-13",
+      "parent": "Saadiya",
+      "address": "Bula Power",
+      "fingerprint": null
+    }
+  ],
   "teachers": [
     {
-      "id": "1",
-      "nationalId": "34534686345",
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "phone": "+254701234567",
+      "id": "d3da",
+      "photo": {},
+      "name": "Maalimin Primary School",
+      "gender": "Male",
+      "email": "iftingirls@yahoo.com",
+      "phone": "0725375325",
+      "doj": "2024-10-17",
+      "dob": "2024-10-15",
+      "address": "Link",
       "tscNo": "TSC123456",
-      "gender": "Male",
-      "doj": "2015-03-15",
-      "dob": "1985-10-10",
-      "address": "123 Green Street, Nairobi",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "2",
-      "nationalId": "78901234567",
-      "name": "Jane Smith",
-      "email": "jane.smith@example.com",
-      "phone": "+254712345678",
-      "tscNo": "TSC654321",
-      "gender": "Female",
-      "doj": "2018-08-21",
-      "dob": "1990-02-25",
-      "address": "456 Blue Avenue, Mombasa",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "3",
-      "nationalId": "56789012345",
-      "name": "Michael Johnson",
-      "email": "michael.johnson@example.com",
-      "phone": "+254722345679",
-      "tscNo": "TSC112233",
-      "gender": "Male",
-      "doj": "2017-11-30",
-      "dob": "1988-07-18",
-      "address": "789 Red Road, Kisumu",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "4",
-      "nationalId": "23456789012",
-      "name": "Alice White",
-      "email": "alice.white@example.com",
-      "phone": "+254733234567",
-      "tscNo": "TSC445566",
-      "gender": "Female",
-      "doj": "2020-01-15",
-      "dob": "1992-03-12",
-      "address": "123 Yellow Street, Eldoret",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "5",
-      "nationalId": "90123456789",
-      "name": "David Brown",
-      "email": "david.brown@example.com",
-      "phone": "+254744345678",
-      "tscNo": "TSC778899",
-      "gender": "Male",
-      "doj": "2014-06-22",
-      "dob": "1982-09-30",
-      "address": "345 Orange Avenue, Nakuru",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "6",
-      "nationalId": "45678901234",
-      "name": "Emily Davis",
-      "email": "emily.davis@example.com",
-      "phone": "+254755456789",
-      "tscNo": "TSC998877",
-      "gender": "Female",
-      "doj": "2016-10-05",
-      "dob": "1989-05-22",
-      "address": "678 Purple Boulevard, Nyeri",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "7",
-      "nationalId": "78912345678",
-      "name": "Chris Evans",
-      "email": "chris.evans@example.com",
-      "phone": "+254766567890",
-      "tscNo": "TSC123987",
-      "gender": "Male",
-      "doj": "2019-04-12",
-      "dob": "1991-01-01",
-      "address": "910 Grey Lane, Kakamega",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "8",
-      "nationalId": "12345678901",
-      "name": "Sophia Martinez",
-      "email": "sophia.martinez@example.com",
-      "phone": "+254777678901",
-      "tscNo": "TSC321654",
-      "gender": "Female",
-      "doj": "2021-05-30",
-      "dob": "1993-12-12",
-      "address": "102 Pink Terrace, Kisii",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "9",
-      "nationalId": "23456789013",
-      "name": "George Wilson",
-      "email": "george.wilson@example.com",
-      "phone": "+254788789012",
-      "tscNo": "TSC654789",
-      "gender": "Male",
-      "doj": "2013-09-09",
-      "dob": "1984-06-28",
-      "address": "345 Brown Lane, Machakos",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "10",
-      "nationalId": "89012345679",
-      "name": "Olivia Taylor",
-      "email": "olivia.taylor@example.com",
-      "phone": "+254799890123",
-      "tscNo": "TSC987123",
-      "gender": "Female",
-      "doj": "2022-07-14",
-      "dob": "1995-08-08",
-      "address": "678 White Street, Thika",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "11",
-      "nationalId": "67890123457",
-      "name": "James Anderson",
-      "email": "james.anderson@example.com",
-      "phone": "+254711234567",
-      "tscNo": "TSC741852",
-      "gender": "Male",
-      "doj": "2010-02-17",
-      "dob": "1980-04-11",
-      "address": "987 Green Park, Kitale",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "12",
-      "nationalId": "90123456780",
-      "name": "Emma Harris",
-      "email": "emma.harris@example.com",
-      "phone": "+254722345678",
-      "tscNo": "TSC369258",
-      "gender": "Female",
-      "doj": "2018-10-20",
-      "dob": "1990-11-29",
-      "address": "123 Silver Crescent, Kericho",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "13",
-      "nationalId": "12345678902",
-      "name": "Robert Clark",
-      "email": "robert.clark@example.com",
-      "phone": "+254733456789",
-      "tscNo": "TSC852741",
-      "gender": "Male",
-      "doj": "2009-05-18",
-      "dob": "1975-07-04",
-      "address": "456 Gold Drive, Bungoma",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "14",
-      "nationalId": "34567890124",
-      "name": "Lily Adams",
-      "email": "lily.adams@example.com",
-      "phone": "+254744567890",
-      "tscNo": "TSC147258",
-      "gender": "Female",
-      "doj": "2012-12-01",
-      "dob": "1986-03-15",
-      "address": "789 Orange Lane, Meru",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "15",
-      "nationalId": "67890123458",
-      "name": "Daniel Green",
-      "email": "daniel.green@example.com",
-      "phone": "+254755678901",
-      "tscNo": "TSC369852",
-      "gender": "Male",
-      "doj": "2017-01-22",
-      "dob": "1988-09-09",
-      "address": "321 White Avenue, Embu",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "16",
-      "nationalId": "56789012346",
-      "name": "Mia Robinson",
-      "email": "mia.robinson@example.com",
-      "phone": "+254766789012",
-      "tscNo": "TSC258963",
-      "gender": "Female",
-      "doj": "2020-08-10",
-      "dob": "1992-10-14",
-      "address": "543 Yellow Boulevard, Garissa",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "17",
-      "nationalId": "23456789014",
-      "name": "Henry Wright",
-      "email": "henry.wright@example.com",
-      "phone": "+254777890123",
-      "tscNo": "TSC852963",
-      "gender": "Male",
-      "doj": "2011-03-05",
-      "dob": "1985-12-30",
-      "address": "876 Red Crescent, Isiolo",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
-    },
-    {
-      "id": "18",
-      "nationalId": "34567890125",
-      "name": "Isabella Lewis",
-      "email": "isabella.lewis@example.com",
-      "phone": "+254788901234",
-      "tscNo": "TSC963258",
-      "gender": "Female",
-      "doj": "2015-09-29",
-      "dob": "1989-01-17",
-      "address": "345 Green Street, Lamu",
-      "photo": "https://www.pngkey.com/png/full/349-3499617_person-placeholder-person-placeholder.png",
-      "fingerprint": ""
+      "fingerprint": null
     }
   ]
 }

@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 // This function would use the fingerprint scanner SDK to capture the fingerprint.
 // Replace this with the actual SDK's function.
 const captureFingerprint = async () => {
-  // Simulating fingerprint data capture; replace with actual SDK call
   return new Promise((resolve) => {
     setTimeout(() => {
       const mockFingerprintData = "base64_encoded_fingerprint_data"; // Replace this with actual fingerprint data
@@ -28,7 +27,7 @@ const AddTeacherForm = () => {
   });
 
   const [fingerprintCaptured, setFingerprintCaptured] = useState(false);
-  const [photoPreview, setPhotoPreview] = useState('https://static.vecteezy.com/system/resources/previews/003/337/584/non_2x/default-avatar-photo-placeholder-profile-icon-vector.jpg'); // Path to your placeholder image
+  const [photoPreview, setPhotoPreview] = useState('https://static.vecteezy.com/system/resources/previews/003/337/584/non_2x/default-avatar-photo-placeholder-profile-icon-vector.jpg')
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -36,7 +35,7 @@ const AddTeacherForm = () => {
       const file = files[0];
       if (file) {
         setTeacherData({ ...teacherData, [name]: file });
-        setPhotoPreview(URL.createObjectURL(file)); // Preview the selected image
+        setPhotoPreview(URL.createObjectURL(file));
       }
     } else {
       setTeacherData({ ...teacherData, [name]: value });
@@ -90,8 +89,6 @@ const AddTeacherForm = () => {
               </div>
             </div>
 
-
-
             <div className='middle-diiiiiv'>
               <div>
                 <label>National ID</label>
@@ -114,12 +111,6 @@ const AddTeacherForm = () => {
                 <textarea name="address" value={teacherData.address} onChange={handleChange}></textarea>
               </div>
             </div>
-
-
-
-
-
-
 
             <div className='last-diiiiiv'>
               <div>
@@ -151,15 +142,6 @@ const AddTeacherForm = () => {
               </div>
             </div>
           </div>
-
-
-
-
-
-
-
-
-
 
           <div className='submit-foooorm'>
             <button type="submit">Submit</button>

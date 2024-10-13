@@ -2,10 +2,18 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import AllTeachers from './pages/Teachers/AllTeachers';
-import AddTeacherForm from './pages/Teachers/AddTeacherForm';
-import TeacherDetails from './pages/Teachers/TeacherDetails';
+import StudentRegistrationForm from './pages/Students/StudentRegistration';
+import StudentProfile from './pages/Students/StudentProfile';
+import TeacherRegistrationForm from './pages/Teachers/TeacherRegistrationForm';
+import TeacherProfile from './pages/Teachers/TeacherProfile';
+import TeacherList from './pages/Teachers/TeacherList';
+import StudentList from './pages/Students/StudentList';
+import SchoolRegistration from './pages/School/SchoolRegistration';
+import SchoolProfileDisplay from './pages/School/SchoolProfileDisplay';
+import EditSchoolInformation from './pages/School/SchoolProfileEdit';
+import SchoolProfileEdit from './pages/School/SchoolProfileEdit';
+
+
 
 const App = () => {
   return (
@@ -13,12 +21,23 @@ const App = () => {
       <Sidebar />
       <div className="content">
         <Navbar />
-        {/* <AllTeachers /> */}
-        {/* <AddTeacherForm /> */}
-        <TeacherDetails/>
-        <Routes>
-        </Routes>
-        {/* <Footer/> */}
+        <div className='pages-body'>
+          <div className='pages-wrapper-div'>
+            {/* <SchoolRegistration/> */}
+            {/* <SchoolProfileDisplay/> */}
+            {/* <SchoolProfileEdit/> */}
+
+
+            {/* <StudentRegistrationForm/> */}
+            {/* <StudentProfile/> */}
+            {/* <StudentList/> */}
+
+
+            {/* <TeacherRegistrationForm/> */}
+            {/* <TeacherProfile/> */}
+            {/* <TeacherList/> */}
+          </div>
+        </div>
       </div>
     </div>
   );

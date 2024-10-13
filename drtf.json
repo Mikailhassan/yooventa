@@ -1,0 +1,204 @@
+{
+  "schools": [
+    {
+      "id": "580e",
+      "schoolInfo": {
+        "name": "Maalimin Primary School",
+        "email": "omarmahat702@gmail.com",
+        "phone": "0778375325",
+        "address": "Maalimin",
+        "county": "Garissa",
+        "postalCode": "56 - 70100"
+      },
+      "classSystem": "Form",
+      "classRange": {
+        "start": 1,
+        "end": 4
+      },
+      "classes": [
+        {
+          "name": "Form 1",
+          "streams": [
+            "A",
+            "B",
+            "C"
+          ]
+        },
+        {
+          "name": "Form 2",
+          "streams": [
+            "A",
+            "B",
+            "C"
+          ]
+        },
+        {
+          "name": "Form 3",
+          "streams": [
+            "A",
+            "B"
+          ]
+        },
+        {
+          "name": "Form 4",
+          "streams": [
+            "A"
+          ]
+        }
+      ],
+      "students": [
+        {
+          "id": 1,
+          "admNo": "9508",
+          "name": "Abukar Bashow",
+          "photo": {},
+          "gender": "Male",
+          "class": "Form 1",
+          "stream": "A",
+          "doj": "2024-10-14",
+          "dob": "2002-10-23",
+          "address": "Bula xagar",
+          "parentIds": [
+            1
+          ],
+          "fingerprint": null
+        }
+      ],
+      "teachers": [
+        {
+          "id": 1,
+          "name": "Omar Mahat",
+          "email": "omar.mahat@example.com",
+          "phone": "0712345678",
+          "photo": {},
+          "gender": "Male",
+          "doj": "2024-10-17",
+          "dob": "2024-10-15",
+          "address": "Link",
+          "tscNumber": "TSC123456",
+          "fingerprint": null
+        },
+        {
+          "id": 2,
+          "name": "Abukar Bashow",
+          "email": "john.doe@example.com",
+          "phone": "0725375325",
+          "photo": {},
+          "gender": "Male",
+          "doj": "2024-10-01",
+          "dob": "2024-10-10",
+          "address": "Gazunta",
+          "tscNumber": "edrtfgyhu",
+          "fingerprint": null
+        },
+        {
+          "id": 3,
+          "name": "Abukar Bashow",
+          "email": "john.doe@example.com",
+          "phone": "0725375325",
+          "photo": {},
+          "gender": "Male",
+          "doj": "2024-10-01",
+          "dob": "2024-10-17",
+          "address": "Gazunta",
+          "tscNumber": "edrtfgyhu",
+          "fingerprint": null
+        }
+      ],
+      "parents": [
+        {
+          "id": 1,
+          "name": "Mohamed Bashow",
+          "phone": "0712345678",
+          "email": "mohamed.bashow@example.com",
+          "relationship": "Father"
+        },
+        {
+          "id": 2,
+          "name": "Amina Bashow",
+          "phone": "0723456789",
+          "email": "amina.bashow@example.com",
+          "relationship": "Mother"
+        }
+      ],
+      "attendances": {
+        "students": [
+          {
+            "studentId": 1,
+            "records": [
+              {
+                "date": "2024-10-14",
+                "status": "present"
+              },
+              {
+                "date": "2024-10-15",
+                "status": "absent"
+              }
+            ]
+          }
+        ],
+        "teachers": [
+          {
+            "teacherId": 1,
+            "records": [
+              {
+                "date": "2024-10-14",
+                "status": "present"
+              },
+              {
+                "date": "2024-10-15",
+                "status": "present"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "a746",
+      "schoolInfo": {
+        "name": "Wajir High School",
+        "email": "john.doe@example.com",
+        "phone": "0725375325",
+        "address": "Gazunta",
+        "county": "Garissa",
+        "postalCode": "56 - 70100"
+      },
+      "classSystem": "Form",
+      "classRange": {
+        "start": "1",
+        "end": "4"
+      },
+      "classes": [
+        {
+          "name": "Form 1",
+          "streams": [
+            "A",
+            "B"
+          ]
+        },
+        {
+          "name": "Form 2",
+          "streams": [
+            "A",
+            "C"
+          ]
+        },
+        {
+          "name": "Form 3",
+          "streams": [
+            "A",
+            "B"
+          ]
+        },
+        {
+          "name": "Form 4",
+          "streams": [
+            "A",
+            "B"
+          ]
+        }
+      ]
+    }
+  ]
+}

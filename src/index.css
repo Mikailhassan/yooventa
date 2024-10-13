@@ -84,11 +84,14 @@ button{
     padding: 4px 0;
 }
 
-.expandable-tabs-hidden p:hover{
+.expandable-tabs-hidden a:hover{
     background-color: #184444;
 }
 
-.expandable-tabs-hidden p{
+.expandable-tabs-hidden a{
+    color: #9ee9e9;
+    text-decoration: none;
+    display: block;
     padding: 12px 48px;
 }
 
@@ -108,7 +111,7 @@ button{
     background-color: #f3f3f3;
 }
 
-.table-wrapper-div {
+.pages-wrapper-div {
     background-color: white;
     padding: 48px 24px;
     box-shadow: 0px 0px 16px #11111a1a;
@@ -121,6 +124,7 @@ button{
 
 
 .table-container {
+    padding: 24px;
     overflow-x: auto;
     display: block;
     width: 100%;
@@ -216,22 +220,20 @@ thead th:not(:last-child) {
 }
 
 
-.last-diiiiiv > div input,
-.last-diiiiiv > div select,
-.middle-diiiiiv > div input,
-.middle-diiiiiv > div textarea{
+.form-flex-div input,
+.form-flex-div select,
+.form-flex-div textarea{
     border: 1px solid #8dd6d6;
     height: 32px;
     border-radius: 4px;
     width: 100%;
     padding: 0 8px;
 }
-.last-diiiiiv > div input:focus,
-.last-diiiiiv > div select:focus,
-.middle-diiiiiv > div input:focus,
-.middle-diiiiiv > div textarea:focus{
+
+.form-flex-div input:focus,
+.form-flex-div select:focus,
+.form-flex-div textarea:focus{
     outline: none;
-    border: 1px solid #0e5252;
 }
 
 .middle-diiiiiv > div textarea{
@@ -261,8 +263,53 @@ thead th:not(:last-child) {
     color: #9ee9e9;
 }
 
+.profile-details-phooto-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 48px;
+}
 
+.profile-details-phooto-div p{
+    font-size: 24px;
+}
 
-#footer{
+.profile-details-only-phooto-name-div{
+    display: flex;
+    align-items: center;
+}
 
+.profile-details-only-phooto-name-div img{
+    width: 100px;
+    margin-right: 32px;
+}
+
+.profile-details-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.profile-details-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.profile-details-table td:first-child {
+    font-weight: bold;
+    width: 160px;
+    background-color: #f2f2f2;
+}
+
+.edit-button {
+    padding: 8px 24px;
+    border: none;
+    background-color: #2b6d6d;
+    color: #9ee9e9;
+    font-size: 18px;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+.edit-button:hover {
+    background-color: #143838;
 }

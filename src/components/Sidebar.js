@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FaGraduationCap } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
+import { NavLink } from 'react-router-dom';
 
 
 function Sidebar() {
@@ -37,8 +38,8 @@ function Sidebar() {
           </div>
           {isExpanded === "tab3" && (
             <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
-              <p >All Teachers</p>
-              <p >Add Teacher</p>
+              <NavLink to="/all-teachers" >All Teachers</NavLink>
+              <NavLink to="/add-teacher">Add Teacher</NavLink>
             </div>
           )}
         </div>
@@ -50,8 +51,8 @@ function Sidebar() {
           </div>
           {isExpanded === "tab4" && (
             <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
-              <p >All Students</p>
-              <p >Student Admission</p>
+              <NavLink to="/all-students" >All Students</NavLink>
+              <NavLink to="/add-student">Student Admission</NavLink>
             </div>
           )}
         </div>
@@ -63,8 +64,8 @@ function Sidebar() {
           </div>
           {isExpanded === "tab5" && (
             <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
-              <p >All Parents</p>
-              <p >Add Parent</p>
+              <NavLink to="/all-parents" >All Parents</NavLink>
+              <NavLink >Add Parent</NavLink>
             </div>
           )}
         </div>
@@ -76,8 +77,8 @@ function Sidebar() {
           </div>
           {isExpanded === "tab6" && (
             <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
-              <p >Mark Attendance</p>
-              <p >See Attendance</p>
+              <NavLink >Mark Attendance</NavLink>
+              <NavLink >See Attendance</NavLink>
             </div>
           )}
         </div>
