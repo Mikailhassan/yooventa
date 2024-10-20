@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaGraduationCap } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 function Sidebar() {
@@ -18,10 +18,10 @@ function Sidebar() {
 
   return (
     <div className='sidebar'>
-        <div id='logo-div'>
+        <Link id='logo-div' to="/">
           <FaGraduationCap id='logo-icon'/>
           <h1>YOVENTA</h1>
-        </div>
+        </Link>
 
       <div id='sidebar-tabs'>
 
@@ -39,7 +39,7 @@ function Sidebar() {
           {isExpanded === "tab3" && (
             <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
               <NavLink to="/all-teachers" >All Teachers</NavLink>
-              <NavLink to="/add-teacher">Add Teacher</NavLink>
+              <NavLink to="/regsiter-teacher">Add Teacher</NavLink>
             </div>
           )}
         </div>
@@ -52,7 +52,7 @@ function Sidebar() {
           {isExpanded === "tab4" && (
             <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
               <NavLink to="/all-students" >All Students</NavLink>
-              <NavLink to="/add-student">Student Admission</NavLink>
+              <NavLink to="/register-student">Add Student</NavLink>
             </div>
           )}
         </div>
@@ -65,7 +65,6 @@ function Sidebar() {
           {isExpanded === "tab5" && (
             <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
               <NavLink to="/all-parents" >All Parents</NavLink>
-              <NavLink >Add Parent</NavLink>
             </div>
           )}
         </div>
@@ -77,16 +76,37 @@ function Sidebar() {
           </div>
           {isExpanded === "tab6" && (
             <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
-              <NavLink >Mark Attendance</NavLink>
+              <NavLink to="/mark-attendance">Mark Attendance</NavLink>
+              <NavLink to="/schedule">Manage Schedule</NavLink>
               <NavLink >See Attendance</NavLink>
             </div>
           )}
         </div>
 
-        <div className='expandable-tabs' onClick={() => handleToggle('tab2')}>
+        <div className='expandable-tabs' onClick={() => handleToggle('tab7')}>
+          <div className='expandable-tabs-visible'>
+            <p>Messaging</p>
+            <p><FaAngleRight /></p>
+          </div>
+          {isExpanded === "tab7" && (
+            <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
+              <NavLink >SMS</NavLink>
+              <NavLink >Email</NavLink>
+            </div>
+          )}
+        </div>
+
+        <div className='expandable-tabs' onClick={() => handleToggle('tab8')}>
           <div className='expandable-tabs-visible'>
             <p>School</p>
+            <p><FaAngleRight /></p>
           </div>
+          {isExpanded === "tab8" && (
+            <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
+              <NavLink to="/school-profile">Profile</NavLink>
+              <NavLink to="/register-school">Register School</NavLink>
+            </div>
+          )}
         </div>
         
       </div>

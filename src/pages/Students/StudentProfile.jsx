@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import './StudentProfile.css'; // We'll create this CSS file separately
+import { useParams } from 'react-router-dom';
 
 const StudentProfile = ({  }) => {
   const [student, setStudent] = useState(null);
   const [parents, setParents] = useState([]);
+  const { studentId } = useParams();
 
   useEffect(() => {
     const fetchStudentData = async () => {
       try {
         const response = await fetch(`http://localhost:4000/schools/580e`);
         const data = await response.json();
-        const foundStudent = data.students.find(s => s.id === 1);
+        const foundStudent = data.students.find(s => s.id === parseInt(studentId, 10));
         setStudent(foundStudent);
         
         if (foundStudent) {
@@ -23,7 +24,7 @@ const StudentProfile = ({  }) => {
     };
 
     fetchStudentData();
-  }, []);
+  }, [studentId]);
 
   if (!student) {
     return <div>Loading...</div>;
@@ -44,6 +45,8 @@ const StudentProfile = ({  }) => {
           <p>Admission No: {student.admNo}</p>
         </div>
       </div>
+
+      
       <div className="profile-content">
         <div className="info-section">
           <h3>Personal Information</h3>

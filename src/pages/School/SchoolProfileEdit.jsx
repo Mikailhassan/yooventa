@@ -50,7 +50,6 @@ const SchoolProfileEdit = () => {
       if (!response.ok) {
         throw new Error('Failed to update school data');
       }
-      alert('School information updated successfully!');
     } catch (err) {
       setError(err.message);
     } finally {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-// import './TeacherList.css';
+import { Link } from 'react-router-dom';
 
-const TeacherList = () => {
+const TeachersList = () => {
   const [teachers, setTeachers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -42,29 +42,43 @@ const TeacherList = () => {
         <table className='table'>
           <thead>
             <tr>
-              <th>ID</th>
+              <th>Photo</th>
+              <th>ID NO</th>
               <th>Name</th>
-              <th>Email</th>
               <th>Phone</th>
+              <th>Email</th>
+              <th>TSC Number</th>
               <th>Gender</th>
               <th>Date of Join</th>
               <th>Date of Birth</th>
               <th>Address</th>
-              <th>TSC Number</th>
+              <th>Contact</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {teachers.map((teacher) => (
               <tr key={teacher.id}>
-                <td>{teacher.id}</td>
+                <td></td>
+                <td>{teacher.idNo}</td>
                 <td>{teacher.name}</td>
-                <td>{teacher.email}</td>
                 <td>{teacher.phone}</td>
+                <td>{teacher.email}</td>
+                <td>{teacher.tscNumber}</td>
                 <td>{teacher.gender}</td>
                 <td>{new Date(teacher.doj).toLocaleDateString()}</td>
                 <td>{new Date(teacher.dob).toLocaleDateString()}</td>
                 <td>{teacher.address}</td>
-                <td>{teacher.tscNumber}</td>
+                <td>
+                  <button className='table-btns'>SMS</button>
+                  <button className='table-btns'>Email</button>
+                </td>
+                <td>
+                  <button className='table-btns'>
+                    <Link  to={`/teacher-profile/${teacher.id}`}>View</Link>
+                  </button>
+                  <button className='table-btns'>Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -74,4 +88,4 @@ const TeacherList = () => {
   );
 };
 
-export default TeacherList;
+export default TeachersList;

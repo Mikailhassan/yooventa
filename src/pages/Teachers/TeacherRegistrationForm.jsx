@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-const TeacherRegistrationForm = ({}) => {
+const TeacherRegistration = () => {
   const [formData, setFormData] = useState({
+    idNo: '',
     name: '',
     email: '',
     phone: '',
@@ -13,6 +14,7 @@ const TeacherRegistrationForm = ({}) => {
     tscNumber: '',
     fingerprint: null,
   });
+  const [photoPreview, setPhotoPreview] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -20,7 +22,17 @@ const TeacherRegistrationForm = ({}) => {
   };
 
   const handleFileChange = (e) => {
-    setFormData({ ...formData, photo: e.target.files[0] });
+    const file = e.target.files[0];
+    setFormData({ ...formData, photo: file });
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPhotoPreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setPhotoPreview(null);
+    }
   };
 
   const captureFingerprint = () => {
@@ -61,9 +73,9 @@ const TeacherRegistrationForm = ({}) => {
       });
 
       if (updateResponse.ok) {
-        alert('Teacher registered successfully!');
         // Reset form
         setFormData({
+          idNo: "",
           name: '',
           email: '',
           phone: '',
@@ -75,6 +87,7 @@ const TeacherRegistrationForm = ({}) => {
           tscNumber: '',
           fingerprint: null,
         });
+        setPhotoPreview(null);
       } else {
         throw new Error('Failed to update school data');
       }
@@ -85,9 +98,43 @@ const TeacherRegistrationForm = ({}) => {
   };
 
   return (
-    <div className="teacher-registration-form">
+    <div className="registration-form">
       <h2>Teacher Registration</h2>
       <form onSubmit={handleSubmit}>
+        
+        <div className="form-group">
+          <label htmlFor="photo">Photo:</label>
+          <div className="photo-upload-container">
+            <input
+              type="file"
+              id="photo"
+              name="photo"
+              onChange={handleFileChange}
+              accept="image/*"
+              required
+            />
+            <div className="photo-preview">
+              {photoPreview ? (
+                <img src={photoPreview} alt="Preview" />
+              ) : (
+                <span>Click to upload photo</span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="idNo">ID number:</label>
+          <input
+            type="text"
+            id="idNo"
+            name="idNo"
+            value={formData.idNo}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <input
@@ -125,13 +172,13 @@ const TeacherRegistrationForm = ({}) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="photo">Photo:</label>
+          <label htmlFor="tscNumber">TSC Number:</label>
           <input
-            type="file"
-            id="photo"
-            name="photo"
-            onChange={handleFileChange}
-            accept="image/*"
+            type="text"
+            id="tscNumber"
+            name="tscNumber"
+            value={formData.tscNumber}
+            onChange={handleInputChange}
             required
           />
         </div>
@@ -178,38 +225,21 @@ const TeacherRegistrationForm = ({}) => {
 
         <div className="form-group">
           <label htmlFor="address">Address:</label>
-          <input
-            type="text"
-            id="address"
+          <textarea 
             name="address"
-            value={formData.address}
+            id="address"
             onChange={handleInputChange}
+            value={formData.address} 
+            cols="30"
             required
-          />
+          ></textarea>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="tscNumber">TSC Number:</label>
-          <input
-            type="text"
-            id="tscNumber"
-            name="tscNumber"
-            value={formData.tscNumber}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <button type="button" onClick={captureFingerprint}>
-            Capture Fingerprint
-          </button>
-        </div>
-
-        <button type="submit">Register Teacher</button>
+        <button type="button" onClick={captureFingerprint} className='capture-fingerprint'>Capture Fingerprint</button>
+        <button type="submit" className='form-submit-btn'>Register Teacher</button>
       </form>
     </div>
   );
 };
 
-export default TeacherRegistrationForm;
+export default TeacherRegistration;

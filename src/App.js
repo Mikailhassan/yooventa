@@ -2,16 +2,22 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
-import StudentRegistrationForm from './pages/Students/StudentRegistration';
-import StudentProfile from './pages/Students/StudentProfile';
-import TeacherRegistrationForm from './pages/Teachers/TeacherRegistrationForm';
-import TeacherProfile from './pages/Teachers/TeacherProfile';
-import TeacherList from './pages/Teachers/TeacherList';
-import StudentList from './pages/Students/StudentList';
+
 import SchoolRegistration from './pages/School/SchoolRegistration';
 import SchoolProfileDisplay from './pages/School/SchoolProfileDisplay';
-import EditSchoolInformation from './pages/School/SchoolProfileEdit';
+import StudentRegistration from './pages/Students/StudentRegistration';
+import TeacherProfile from './pages/Teachers/TeacherProfile';
+import StudentList from './pages/Students/StudentList';
+import TeachersList from './pages/Teachers/TeachersList';
+import TeacherRegistration from './pages/Teachers/TeacherRegistrationForm';
+import TeacherProfileEdit from './pages/Teachers/TeacherProfileEdit';
+import EditParent from './pages/Parents/EditParent';
 import SchoolProfileEdit from './pages/School/SchoolProfileEdit';
+import ParentList from './pages/Parents/ParentList';
+import StudentProfile from './pages/Students/StudentProfile';
+import ParentProfile from './pages/Parents/ParentProfile';
+import AttendanceSystem from './pages/Attendance/AttendanceSystem';
+import ScheduleManager from './pages/Attendance/ScheduleManager';
 
 
 
@@ -23,19 +29,35 @@ const App = () => {
         <Navbar />
         <div className='pages-body'>
           <div className='pages-wrapper-div'>
-            {/* <SchoolRegistration/> */}
-            {/* <SchoolProfileDisplay/> */}
-            {/* <SchoolProfileEdit/> */}
+            <Routes>
+              
+              <Route path="/school-profile" element={<SchoolProfileDisplay/>}/>
+              <Route path="/register-school" element={<SchoolRegistration/>}/>
+              <Route path="/edit-school-profile" element={<SchoolProfileEdit/>}/>
+
+              <Route path="/register-student" element={<StudentRegistration />}/>
+              <Route path="/student-profile/:studentId" element={<StudentProfile />}/>
+              <Route path="/all-students" element={<StudentList />}/>
+              <Route path="/edit-parent/:studentId" element={<EditParent />}/>
 
 
-            {/* <StudentRegistrationForm/> */}
-            {/* <StudentProfile/> */}
-            {/* <StudentList/> */}
+              <Route path="/regsiter-teacher" element={<TeacherRegistration />}/>
+              <Route path="/teacher-profile/:teacherId" element={<TeacherProfile />}/>
+              <Route path="/all-teachers" element={<TeachersList />}/>
+              <Route path="/edit-teacher/:teacherId" element={<TeacherProfileEdit />}/>
+              
+              <Route path="/all-parents" element={<ParentList />}/>
+              <Route path="/parent-profile/:parentId" element={<ParentProfile />}/>
+              <Route path="/edit-parent/:parentId" element={<EditParent />}/>
 
+              <Route path="/mark-attendance" element={<AttendanceSystem />}/>
+              <Route path="/schedule" element={<ScheduleManager />}/>
 
-            {/* <TeacherRegistrationForm/> */}
-            {/* <TeacherProfile/> */}
-            {/* <TeacherList/> */}
+              <Route path="/" element={<>Home</>}/>
+
+              <Route path="*" element={<hi>Not Found</hi>}/>
+            </Routes>
+            
           </div>
         </div>
       </div>

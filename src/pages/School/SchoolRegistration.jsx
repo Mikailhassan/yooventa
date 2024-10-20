@@ -197,7 +197,6 @@ const SchoolRegistration = () => {
               <input
                 id="email"
                 name="email"
-                type="email"
                 value={schoolInfo.email}
                 onChange={handleInfoChange}
                 placeholder="Enter school email"

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiEdit } from "react-icons/fi";
 
 
 const StudentList = () => {
@@ -42,7 +41,7 @@ const StudentList = () => {
         <thead>
           <tr>
             <th>Photo</th>
-            <th>Admission No</th>
+            <th>ADM Number</th>
             <th>Name</th>
             <th>Gender</th>
             <th>Class</th>
@@ -66,9 +65,12 @@ const StudentList = () => {
               <td>{new Date(student.dob).toLocaleDateString()}</td>
               <td>{student.address}</td>
               <td>
-                <Link to={`/teachers/${student.id}/edit`} className="edit-button">
-                  <FiEdit />
-                </Link>
+                <button className='table-btns'>
+                  <Link to={`/student-profile/${student.id}`}>
+                    View
+                  </Link>
+                </button>
+                <button className='table-btns'>Delete</button>
               </td>
             </tr>
           ))}
