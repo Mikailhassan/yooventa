@@ -167,11 +167,11 @@ a {
     padding: 8px;
 }
 
-thead th:not(:last-child) {
+.table thead th:not(:last-child) {
     border-right: 1px solid #3a8a8a;
 }
 
-tbody td:not(:last-child) {
+.table tbody td:not(:last-child) {
     border-right: 1px solid #cde6e6;
 }
 
@@ -347,53 +347,6 @@ tbody td:not(:last-child) {
 
 
 
-.school-profile {
-    max-width: 800px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-}
-
-.school-name {
-    color: #333;
-    border-bottom: 1px solid #a7a7a7;
-    padding-bottom: 10px;
-}
-
-.school-info,
-.class-info,
-.classes {
-    margin-top: 20px;
-}
-
-.school-info p,
-.class-info p {
-    margin: 5px 0;
-}
-
-.class-item {
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.class-item h3 {
-    margin-top: 0;
-    color: #444;
-}
-
-.loading,
-.error,
-.no-data {
-    text-align: center;
-    font-size: 18px;
-    margin-top: 50px;
-}
-
-.error {
-    color: red;
-}
 
 
 
@@ -404,139 +357,9 @@ tbody td:not(:last-child) {
 
 
 
-
-
-/* ScheduleManager Styles */
-.sm-container {
-    font-family: 'Arial', sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f0f4f8;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.sm-title {
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 28px;
-}
-
-.sm-section {
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.sm-section-title {
-    color: #0e5252;
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.sm-weekday-selector {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.sm-weekday-item {
-    display: flex;
-    align-items: center;
-}
-
-.sm-weekday-label {
-    margin-right: 5px;
-    font-weight: bold;
-    color: #34495e;
-}
-
-.sm-checkbox {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #0e5252;
-    border-radius: 4px;
-    cursor: pointer;
-    position: relative;
-}
-
-.sm-checkbox:checked::before {
-    content: '✓';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #0e5252;
-    font-size: 14px;
-}
-
-.sm-select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #bdc3c7;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.sm-session-item,
-.sm-holiday-item {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.sm-input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #bdc3c7;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.sm-button {
-    background-color: #0e5252;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.sm-button:hover {
-    background-color: #2980b9;
-}
-
-.sm-remove-button {
-    background-color: #e74c3c;
-}
-
-.sm-remove-button:hover {
-    background-color: #c0392b;
-}
-
-.sm-save-button {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    background-color: #0e5252;
-    margin-top: 20px;
-}
-
-.sm-save-button:hover {
-    background-color: #0e5252;
-}
 
 /* AttendanceSystem Styles */
 .as-container {
-    font-family: 'Arial', sans-serif;
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
@@ -673,4 +496,102 @@ tbody td:not(:last-child) {
 
 .as-button-absent:hover {
     background-color: #c0392b;
+}
+
+
+
+
+
+
+
+
+
+
+.as-select,
+.as-date-input {
+    flex: 1;
+    margin: 0 10px;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+.as-select-all-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.as-select-all-buttons button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.as-select-all-buttons button:nth-child(1) {
+    background-color: #2ecc71;
+}
+
+.as-select-all-buttons button:nth-child(1):hover {
+    background-color: #27ae60;
+}
+
+.as-select-all-buttons button:nth-child(2) {
+    background-color: #e74c3c;
+}
+
+.as-select-all-buttons button:nth-child(2):hover {
+    background-color: #c0392b;
+}
+
+.as-select-all-buttons button:nth-child(3) {
+    background-color: #f39c12;
+}
+
+.as-select-all-buttons button:nth-child(3):hover {
+    background-color: #d35400;
+}
+
+.as-submit-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.as-submit-button:hover {
+    background-color: #2980b9;
+}
+
+
+
+
+
+
+@media (max-width: 480px) {
+    .attendance-list__item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .attendance-list__actions {
+        margin-top: 0.5rem;
+    }
 }

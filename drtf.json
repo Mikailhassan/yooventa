@@ -20,27 +20,21 @@
           "name": "Form 1",
           "streams": [
             "A",
-            "B",
-            "C",
-            "D"
+            "B"
           ]
         },
         {
           "name": "Form 2",
           "streams": [
             "A",
-            "B",
-            "C",
-            "D"
+            "B"
           ]
         },
         {
           "name": "Form 3",
           "streams": [
             "A",
-            "B",
-            "C",
-            "D"
+            "B"
           ]
         },
         {
@@ -54,15 +48,47 @@
       "students": [
         {
           "id": 1,
-          "photo": {},
+          "photo": "https://kpopping.com/documents/81/4/social-widget/Jo-facePicture(7).webp?v=de2b5",
           "admNo": "678",
           "name": "Abukar Bashow",
-          "gender": "Male",
+          "gender": "Female",
           "class": "Form 2",
           "stream": "B",
           "doj": "2024-10-08",
           "dob": "2024-10-16",
           "address": "BUJuh",
+          "fingerprint": null,
+          "parentIds": [
+            1
+          ]
+        },
+        {
+          "id": 2,
+          "photo": {},
+          "admNo": "198",
+          "name": "Suleiman Mahad",
+          "gender": "Male",
+          "class": "Form 2",
+          "stream": "B",
+          "doj": "2024-10-10",
+          "dob": "2024-10-25",
+          "address": "Hagar",
+          "fingerprint": null,
+          "parentIds": [
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "photo": {},
+          "admNo": "180",
+          "name": "Ahmed Mahad",
+          "gender": "Male",
+          "class": "Form 2",
+          "stream": "B",
+          "doj": "2024-10-10",
+          "dob": "2024-10-25",
+          "address": "Hagar",
           "fingerprint": null,
           "parentIds": [
             1
@@ -73,7 +99,7 @@
         {
           "id": 1,
           "idNo": "345678",
-          "name": "Abukar Bashow",
+          "name": "Hassan Khalif",
           "email": "omarmahat702@gmail.com",
           "phone": "0725375325",
           "photo": null,
@@ -88,11 +114,11 @@
       "parents": [
         {
           "idNo": "345678",
-          "name": "Abukar Bashow",
+          "name": "Fatuma Bashow",
           "phone": "0725375325",
           "email": "antonymwangikr@gmail.com",
           "gender": "Male",
-          "relationship": "Father",
+          "relationship": "Mother",
           "id": 1
         }
       ],
@@ -180,9 +206,10 @@
         },
         "holidays": [
           {
-            "name": "School Break",
-            "startDate": "2024-12-15",
-            "endDate": "2025-01-05"
+            "name": "Mashujaa DAy",
+            "startDate": "2024-10-20",
+            "endDate": "2024-10-20",
+            "repeatType": "yearly"
           }
         ]
       },
@@ -194,7 +221,65 @@
               {
                 "studentId": 2,
                 "status": "absent",
-                "timeIn": "14:38",
+                "time": "14:38",
+                "method": "manual"
+              },
+              {
+                "studentId": 1,
+                "status": "present",
+                "time": "14:38",
+                "method": "manual"
+              },
+              {
+                "studentId": 3,
+                "status": "late",
+                "time": "14:38",
+                "method": "manual"
+              }
+            ]
+          },
+          {
+            "date": "2024-12-15",
+            "records": [
+              {
+                "studentId": 2,
+                "status": "present",
+                "time": "14:38",
+                "method": "manual"
+              },
+              {
+                "studentId": 1,
+                "status": "present",
+                "time": "14:38",
+                "method": "manual"
+              },
+              {
+                "studentId": 3,
+                "status": "absent",
+                "time": "14:38",
+                "method": "manual"
+              }
+            ]
+          },
+          {
+            "date": "2024-10-22",
+            "records": [
+              {
+                "studentId": 1,
+                "status": "present",
+                "time": "16:37",
+                "method": "manual"
+              },
+              {
+                "studentId": 2,
+                "status": "present",
+                "time": "16:37",
+                "method": "manual"
+              },
+              {
+                "studentId": 3,
+                "status": "present",
+                "time": "16:37",
                 "method": "manual"
               }
             ]
@@ -207,7 +292,40 @@
               {
                 "teacherId": 1,
                 "status": "absent",
-                "timeIn": "14:38",
+                "time": "14:38",
+                "method": "manual"
+              }
+            ]
+          },
+          {
+            "date": "2024-10-21",
+            "records": [
+              {
+                "teacherId": 1,
+                "status": "late",
+                "time": "12:21",
+                "method": "fingerprint"
+              }
+            ]
+          },
+          {
+            "date": "2024-10-18",
+            "records": [
+              {
+                "teacherId": 1,
+                "status": "present",
+                "time": "16:38",
+                "method": "manual"
+              }
+            ]
+          },
+          {
+            "date": "2024-10-03",
+            "records": [
+              {
+                "teacherId": 1,
+                "status": "absent",
+                "time": "16:39",
                 "method": "manual"
               }
             ]

@@ -9,6 +9,7 @@ const ScheduleManager = () => {
   const [selectedDay, setSelectedDay] = useState('Monday');
 
   const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const repeatTypes = ['none', 'weekly', 'monthly', 'yearly'];
 
   useEffect(() => {
     fetch('http://localhost:4000/schools/580e')
@@ -18,7 +19,10 @@ const ScheduleManager = () => {
         setWeekdays(data.schedule.weekdays);
         setWeekends(data.schedule.weekends);
         setDailySessions(data.schedule.dailySessions);
-        setHolidays(data.schedule.holidays);
+        setHolidays(data.schedule.holidays.map(holiday => ({
+          ...holiday,
+          repeatType: holiday.repeatType || 'none'
+        })));
       })
       .catch(error => console.error('Error fetching school data:', error));
   }, []);
@@ -57,7 +61,7 @@ const ScheduleManager = () => {
   };
 
   const handleAddHoliday = () => {
-    setHolidays([...holidays, { name: '', startDate: '', endDate: '' }]);
+    setHolidays([...holidays, { name: '', startDate: '', endDate: '', repeatType: 'none' }]);
   };
 
   const handleUpdateHoliday = (index, field, value) => {
@@ -176,6 +180,15 @@ const ScheduleManager = () => {
               value={holiday.endDate}
               onChange={(e) => handleUpdateHoliday(index, 'endDate', e.target.value)}
             />
+            <select
+              className="sm-input"
+              value={holiday.repeatType}
+              onChange={(e) => handleUpdateHoliday(index, 'repeatType', e.target.value)}
+            >
+              {repeatTypes.map(type => (
+                <option key={type} value={type}>{type.charAt(0).toUpperCase() + type.slice(1)}</option>
+              ))}
+            </select>
             <button className="sm-button sm-remove-button" onClick={() => handleRemoveHoliday(index)}>Remove</button>
           </div>
         ))}

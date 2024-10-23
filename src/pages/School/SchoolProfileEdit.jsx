@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { CiTrash } from "react-icons/ci";
+import { useNavigate, useParams } from 'react-router-dom';
+import './school.css'
 
 const SchoolProfileEdit = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
   const [editedSchool, setEditedSchool] = useState({
     schoolInfo: {},
-    classSystem: '',
-    classRange: { start: '', end: '' },
     classes: []
   });
   const [loading, setLoading] = useState(true);
@@ -13,17 +15,11 @@ const SchoolProfileEdit = () => {
 
   useEffect(() => {
     fetchSchoolData();
-  }, []);
-
-  useEffect(() => {
-    if (editedSchool.classRange.start && editedSchool.classRange.end) {
-      updateClassesBasedOnRange(editedSchool.classRange.start, editedSchool.classRange.end);
-    }
-  }, [editedSchool.classSystem]);
+  }, [id]);
 
   const fetchSchoolData = async () => {
     try {
-      const response = await fetch('http://localhost:4000/schools/580e');
+      const response = await fetch(`http://localhost:4000/schools/${id}`);
       if (!response.ok) {
         throw new Error('Failed to fetch school data');
       }
@@ -40,7 +36,7 @@ const SchoolProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:4000/schools/580e', {
+      const response = await fetch(`http://localhost:4000/schools/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -50,6 +46,7 @@ const SchoolProfileEdit = () => {
       if (!response.ok) {
         throw new Error('Failed to update school data');
       }
+      navigate(`/school-profile`); // Redirect to profile view after successful save
     } catch (err) {
       setError(err.message);
     } finally {
@@ -65,51 +62,6 @@ const SchoolProfileEdit = () => {
         ...prev.schoolInfo,
         [name]: value
       }
-    }));
-  };
-
-  const handleClassSystemChange = (e) => {
-    setEditedSchool(prev => ({
-      ...prev,
-      classSystem: e.target.value
-    }));
-  };
-
-  const handleRangeChange = (type, value) => {
-    setEditedSchool(prev => {
-      const newClassRange = {
-        ...prev.classRange,
-        [type]: value
-      };
-      
-      // Call updateClassesBasedOnRange after updating the class range
-      setTimeout(() => updateClassesBasedOnRange(newClassRange.start, newClassRange.end), 0);
-      
-      return {
-        ...prev,
-        classRange: newClassRange
-      };
-    });
-  };
-
-
-
-  const updateClassesBasedOnRange = (start, end) => {
-    const newClasses = [];
-    for (let i = parseInt(start); i <= parseInt(end); i++) {
-      const existingClass = editedSchool.classes.find(cls => cls.name === `${editedSchool.classSystem} ${i}`);
-      if (existingClass) {
-        newClasses.push(existingClass);
-      } else {
-        newClasses.push({
-          name: `${editedSchool.classSystem} ${i}`,
-          streams: ['A']
-        });
-      }
-    }
-    setEditedSchool(prev => ({
-      ...prev,
-      classes: newClasses
     }));
   };
 
@@ -146,8 +98,8 @@ const SchoolProfileEdit = () => {
     }));
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div className="error">Error: {error}</div>;
 
   return (
     <div className="school-edit-container">
@@ -156,7 +108,7 @@ const SchoolProfileEdit = () => {
         <div className="form-group">
           <h3>School Information</h3>
           {Object.entries(editedSchool.schoolInfo).map(([key, value]) => (
-            <div key={key}>
+            <div key={key} className="input-group">
               <label htmlFor={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
               <input
                 id={key}
@@ -167,39 +119,6 @@ const SchoolProfileEdit = () => {
               />
             </div>
           ))}
-        </div>
-
-        <div className="form-group">
-          <h3>Class System</h3>
-          <select
-            value={editedSchool.classSystem}
-            onChange={handleClassSystemChange}
-          >
-            <option value="Grade">Grade</option>
-            <option value="Form">Form</option>
-            <option value="Class">Class</option>
-          </select>
-
-          <div className="range-inputs">
-            <div>
-              <label>Start {editedSchool.classSystem}</label>
-              <input
-                type="number"
-                value={editedSchool.classRange.start}
-                onChange={(e) => handleRangeChange('start', e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <label>End {editedSchool.classSystem}</label>
-              <input
-                type="number"
-                value={editedSchool.classRange.end}
-                onChange={(e) => handleRangeChange('end', e.target.value)}
-                required
-              />
-            </div>
-          </div>
         </div>
 
         <div className="form-group">
@@ -235,9 +154,14 @@ const SchoolProfileEdit = () => {
             </div>
           ))}
         </div>
-        <button type="submit" className="save-button" disabled={loading}>
-          {loading ? 'Saving...' : 'Save Changes'}
-        </button>
+        <div className="button-group">
+          <button type="button" className="cancel-button" onClick={() => navigate(`/school-profile`)}>
+            Cancel
+          </button>
+          <button type="submit" className="save-button" disabled={loading}>
+            {loading ? 'Saving...' : 'Save Changes'}
+          </button>
+        </div>
       </form>
     </div>
   );

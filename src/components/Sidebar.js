@@ -78,7 +78,7 @@ function Sidebar() {
             <div onClick={handleSubtabClick} className='expandable-tabs-hidden'>
               <NavLink to="/mark-attendance">Mark Attendance</NavLink>
               <NavLink to="/schedule">Manage Schedule</NavLink>
-              <NavLink >See Attendance</NavLink>
+              <NavLink to="/attendance-report">See Attendance</NavLink>
             </div>
           )}
         </div>

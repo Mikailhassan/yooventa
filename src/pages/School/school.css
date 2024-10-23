@@ -1,0 +1,286 @@
+/* SchoolProfileEdit.css */
+.school-edit-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.school-edit-container h2 {
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    border-bottom: 2px solid #edf2f7;
+    padding-bottom: 1rem;
+}
+
+.school-edit-container h3 {
+    color: #4a5568;
+    margin: 1.5rem 0 1rem;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f8fafc;
+    border-radius: 6px;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.streams-container {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.streams-container h4 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.streams-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.stream-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stream-item input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.remove-stream {
+    background: none;
+    border: none;
+    color: #e53e3e;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.remove-stream:hover {
+    background-color: #fff5f5;
+}
+
+.add-stream {
+    background-color: #48bb78;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.add-stream:hover {
+    background-color: #38a169;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.save-button,
+.cancel-button {
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.save-button {
+    background-color: #4299e1;
+    color: white;
+    border: none;
+}
+
+.save-button:hover {
+    background-color: #3182ce;
+}
+
+.save-button:disabled {
+    background-color: #a0aec0;
+    cursor: not-allowed;
+}
+
+.cancel-button {
+    background-color: #fff;
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+}
+
+.cancel-button:hover {
+    background-color: #f7fafc;
+}
+
+
+
+
+/* school profile display */
+
+.profile-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.school-profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.school-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a365d;
+}
+
+.edit-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.edit-button:hover {
+    background-color: #2c5282;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+
+.schoo-profile-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.schoo-profile-card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.schoo-profile-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.schoo-profile-card-title svg {
+    color: #3182ce;
+}
+
+.schoo-profile-card-content {
+    padding: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: #4a5568;
+}
+
+.info-item svg {
+    color: #3182ce;
+    flex-shrink: 0;
+}
+
+.schoo-profile-card-content .classes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.schoo-profile-card-content.class-card {
+    background-color: #f7fafc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.schoo-profile-card-content .class-name {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.profile-streams-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.stream-badge {
+    background-color: #ebf8ff;
+    color: #3182ce;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}

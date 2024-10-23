@@ -18,6 +18,8 @@ import StudentProfile from './pages/Students/StudentProfile';
 import ParentProfile from './pages/Parents/ParentProfile';
 import AttendanceSystem from './pages/Attendance/AttendanceSystem';
 import ScheduleManager from './pages/Attendance/ScheduleManager';
+import AttendanceReport from './pages/Attendance/AttendanceReport';
+import Dashboard from './pages/Home/Dashboard';
 
 
 
@@ -33,7 +35,7 @@ const App = () => {
               
               <Route path="/school-profile" element={<SchoolProfileDisplay/>}/>
               <Route path="/register-school" element={<SchoolRegistration/>}/>
-              <Route path="/edit-school-profile" element={<SchoolProfileEdit/>}/>
+              <Route path="/edit-school-profile/:id" element={<SchoolProfileEdit/>}/>
 
               <Route path="/register-student" element={<StudentRegistration />}/>
               <Route path="/student-profile/:studentId" element={<StudentProfile />}/>
@@ -52,8 +54,9 @@ const App = () => {
 
               <Route path="/mark-attendance" element={<AttendanceSystem />}/>
               <Route path="/schedule" element={<ScheduleManager />}/>
+              <Route path="/attendance-report" element={<AttendanceReport />}/>
 
-              <Route path="/" element={<>Home</>}/>
+              <Route path="/" element={<Dashboard/>}/>
 
               <Route path="*" element={<hi>Not Found</hi>}/>
             </Routes>

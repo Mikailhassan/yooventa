@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ClassStreamSelector from './ClassStreamSelector';
-import StudentList from './StudentList';
-import TeacherList from './TeacherList';
-import { Link } from 'react-router-dom';
+import AttendanceList from './AttendanceList';
+import { isDateAvailable, formatDate } from './utils';
 
 const AttendanceSystem = () => {
   const [school, setSchool] = useState(null);
@@ -11,109 +10,133 @@ const AttendanceSystem = () => {
   const [selectedClass, setSelectedClass] = useState('');
   const [selectedStream, setSelectedStream] = useState('');
   const [attendanceList, setAttendanceList] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
-  const [sessionAvailable, setSessionAvailable] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(formatDate(new Date()));
+  const [dateAvailable, setDateAvailable] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:4000/schools/580e')
-      .then(response => response.json())
-      .then(data => setSchool(data))
-      .catch(error => console.error('Error fetching school data:', error));
+    fetchSchoolData();
   }, []);
 
   useEffect(() => {
-    setSelectedClass('');
-    setSelectedStream('');
-    setAttendanceList([]);
-  }, [attendanceType]);
-
-  useEffect(() => {
-    if (school && selectedDate) {
-      const isOpen = isSchoolOpen(selectedDate);
-      const hasSession = checkSessionAvailability(selectedDate);
-      setSessionAvailable(isOpen && hasSession);
+    if (school) {
+      const available = isDateAvailable(school, selectedDate);
+      setDateAvailable(available);
+      if (!available) {
+        setAttendanceList([]);
+      }
     }
   }, [school, selectedDate]);
 
-  const handleMarkAttendance = async (id, status) => {
-    if (!sessionAvailable) {
-      alert("No session available on the selected date. Attendance cannot be marked.");
+  const fetchSchoolData = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/schools/580e');
+      const data = await response.json();
+      setSchool(data);
+    } catch (error) {
+      console.error('Error fetching school data:', error);
+    }
+  };
+
+  const handleDateChange = (e) => {
+    const newDate = e.target.value;
+    setSelectedDate(newDate);
+    if (school && !isDateAvailable(school, newDate)) {
+      setAttendanceList([]);
+    }
+  };
+
+  const handleMarkAttendance = (id, status) => {
+    if (!dateAvailable) {
+      return;
+    }
+    setAttendanceList(prev => {
+      const existingIndex = prev.findIndex(item => item.id === id);
+      if (existingIndex !== -1) {
+        return [
+          ...prev.slice(0, existingIndex),
+          { ...prev[existingIndex], status },
+          ...prev.slice(existingIndex + 1)
+        ];
+      }
+      return [...prev, { id, status }];
+    });
+  };
+
+  const handleSelectAll = (status) => {
+    if (!dateAvailable) {
+      return;
+    }
+    const allIds = attendanceType === 'students'
+      ? school.students.filter(s => s.class === selectedClass && s.stream === selectedStream).map(s => s.id)
+      : school.teachers.map(t => t.id);
+    
+    setAttendanceList(allIds.map(id => ({ id, status })));
+  };
+
+  const handleSubmitAttendance = async () => {
+    if (!dateAvailable) {
       return;
     }
 
     const now = new Date();
     const timeString = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
 
-    const attendanceRecord = {
-      id,
-      status,
-      timeIn: timeString,
-      method: markingMethod,
-      date: selectedDate,
-      type: attendanceType
-    };
+    const updatedSchool = { ...school };
+    const attendanceKey = attendanceType === 'students' ? 'students' : 'teachers';
+
+    const dateIndex = updatedSchool.attendances[attendanceKey].findIndex(a => a.date === selectedDate);
+    if (dateIndex === -1) {
+      updatedSchool.attendances[attendanceKey].push({
+        date: selectedDate,
+        records: []
+      });
+    }
+
+    attendanceList.forEach(({ id, status }) => {
+      const record = {
+        [`${attendanceType === 'students' ? 'student' : 'teacher'}Id`]: id,
+        status,
+        time: timeString,
+        method: markingMethod
+      };
+
+      const dateIndex = updatedSchool.attendances[attendanceKey].findIndex(a => a.date === selectedDate);
+      const recordIndex = updatedSchool.attendances[attendanceKey][dateIndex].records.findIndex(r => r[`${attendanceType === 'students' ? 'student' : 'teacher'}Id`] === id);
+
+      if (recordIndex === -1) {
+        updatedSchool.attendances[attendanceKey][dateIndex].records.push(record);
+      } else {
+        updatedSchool.attendances[attendanceKey][dateIndex].records[recordIndex] = record;
+      }
+    });
 
     try {
-      const response = await fetch('http://localhost:4000/attendance', {
-        method: 'POST',
+      const response = await fetch('http://localhost:4000/schools/580e', {
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(attendanceRecord),
+        body: JSON.stringify(updatedSchool),
       });
 
       if (!response.ok) {
         throw new Error('Failed to update attendance');
       }
 
-      setAttendanceList(prev => {
-        const index = prev.findIndex(item => item.id === id);
-        if (index !== -1) {
-          return [
-            ...prev.slice(0, index),
-            attendanceRecord,
-            ...prev.slice(index + 1)
-          ];
-        }
-        return [...prev, attendanceRecord];
-      });
+      setAttendanceList([]);
+      fetchSchoolData(); // Refresh school data
     } catch (error) {
       console.error('Error updating attendance:', error);
     }
   };
 
-  const isSchoolOpen = (date) => {
-    if (!school || !school.schedule) return false;
-
-    const checkDate = new Date(date);
-    const dayOfWeek = checkDate.toLocaleDateString('en-US', { weekday: 'long' });
-    
-    if (!school.schedule.weekdays.includes(dayOfWeek) && !school.schedule.weekends.includes(dayOfWeek)) {
-      return false;
-    }
-
-    const isHoliday = school.schedule.holidays.some(holiday => {
-      const start = new Date(holiday.startDate);
-      const end = new Date(holiday.endDate);
-      return checkDate >= start && checkDate <= end;
-    });
-
-    return !isHoliday;
-  };
-
-  const checkSessionAvailability = (date) => {
-    if (!school || !school.schedule) return false;
-
-    const checkDate = new Date(date);
-    const dayOfWeek = checkDate.toLocaleDateString('en-US', { weekday: 'long' });
-    
-    const dailySessions = school.schedule.dailySessions[dayOfWeek];
-    return dailySessions && dailySessions.length > 0;
-  };
-
   if (!school) {
     return <div className="as-loading">Loading...</div>;
   }
+
+  const attendees = attendanceType === 'students'
+    ? school.students.filter(s => s.class === selectedClass && s.stream === selectedStream)
+    : school.teachers;
 
   return (
     <div className="as-container">
@@ -142,11 +165,11 @@ const AttendanceSystem = () => {
           className="as-date-input"
           type="date"
           value={selectedDate}
-          onChange={(e) => setSelectedDate(e.target.value)}
+          onChange={handleDateChange}
         />
       </div>
       
-      {sessionAvailable ? (
+      {dateAvailable ? (
         <div className="as-attendance-marker">
           {attendanceType === 'students' && (
             <ClassStreamSelector
@@ -158,25 +181,24 @@ const AttendanceSystem = () => {
             />
           )}
           
-          {attendanceType === 'students' && selectedClass && selectedStream && (
-            <StudentList
-              students={school.students.filter(s => s.class === selectedClass && s.stream === selectedStream)}
-              handleMarkAttendance={handleMarkAttendance}
-            />
-          )}
+          <div className="as-select-all-buttons">
+            <button onClick={() => handleSelectAll('present')}>Mark All Present</button>
+            <button onClick={() => handleSelectAll('absent')}>Mark All Absent</button>
+            <button onClick={() => handleSelectAll('late')}>Mark All Late</button>
+          </div>
           
-          {attendanceType === 'teachers' && (
-            <TeacherList
-              teachers={school.teachers}
-              handleMarkAttendance={handleMarkAttendance}
-            />
-          )}
+          <AttendanceList
+            attendees={attendees}
+            handleMarkAttendance={handleMarkAttendance}
+            attendanceList={attendanceList}
+            attendeeType={attendanceType === 'students' ? 'student' : 'teacher'}
+          />
+          
+          <button className="as-submit-button" onClick={handleSubmitAttendance}>Submit Attendance</button>
         </div>
       ) : (
         <div className="as-no-session-message">
-          {isSchoolOpen(selectedDate) 
-            ? "No session available on the selected date. Attendance cannot be marked." 
-            : "The school is closed on the selected date. Attendance cannot be marked."}
+          Attendance cannot be marked for the selected date as it's a holiday or non-working day.
         </div>
       )}
     </div>

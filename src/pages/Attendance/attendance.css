@@ -1,0 +1,396 @@
+/* ATTENDACE LIST */
+
+.attendance-list {
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.attendance-list__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 1rem;
+    background-color: #f3f4f6;
+    border-bottom: 1px solid #e5e7eb;
+    margin: 0;
+}
+
+.attendance-list__items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.attendance-list__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.attendance-list__item:last-child {
+    border-bottom: none;
+}
+
+.attendance-list__name {
+    font-weight: 500;
+}
+
+.attendance-list__actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.attendance-list__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.attendance-list__button--active {
+    background-color: #88b1a8;
+}
+
+
+
+
+
+
+
+/* ScheduleManager Styles */
+.sm-container {
+    max-width: 1-00px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f4f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sm-title {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.sm-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.sm-section-title {
+    color: #0e5252;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.sm-weekday-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.sm-weekday-item {
+    display: flex;
+    align-items: center;
+}
+
+.sm-weekday-label {
+    margin-right: 5px;
+    font-weight: bold;
+    color: #34495e;
+}
+
+.sm-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0e5252;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+.sm-checkbox:checked::before {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #0e5252;
+    font-size: 14px;
+}
+
+.sm-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.sm-session-item,
+.sm-holiday-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.sm-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.sm-button {
+    background-color: #0e5252;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sm-button:hover {
+    background-color: #2980b9;
+}
+
+.sm-remove-button {
+    background-color: #e74c3c;
+}
+
+.sm-remove-button:hover {
+    background-color: #c0392b;
+}
+
+.sm-save-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #0e5252;
+    margin-top: 20px;
+}
+
+.sm-save-button:hover {
+    background-color: #0e5252;
+}
+
+
+
+
+
+
+
+/* ATTENDANCE REPORT */
+
+
+.attendance-report {
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+.entity-toggle {
+    display: flex;
+    gap: 8px;
+}
+
+.entity-toggle button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.entity-toggle button.active {
+    background-color: #2196f3;
+    color: white;
+}
+
+.controls {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.date-range {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.date-range input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.export-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.export-btn:hover {
+    background-color: #45a049;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.chart-container,
+.stats-container {
+    background-color: #f9f9f9;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.chart-container h2,
+.stats-container h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.stats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.stat-card {
+    background-color: white;
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.present {
+    color: #4CAF50;
+}
+
+.absent {
+    color: #f44336;
+}
+
+.late {
+    color: #FFC107;
+}
+
+.detailed-report {
+    background-color: #f9f9f9;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.detailed-report h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 1024px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .attendance-report {
+        padding: 16px;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .date-range {
+        flex-wrap: wrap;
+    }
+}
+
