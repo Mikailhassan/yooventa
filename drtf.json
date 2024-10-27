@@ -3,8 +3,8 @@
     {
       "id": "580e",
       "schoolInfo": {
-        "name": "Maalimin Primary School",
-        "email": "omarmahat702@gmail.com",
+        "name": "Maalimin Secondary School",
+        "email": "omar@gmail.com",
         "phone": "0778375325",
         "address": "Maalimin",
         "county": "Garissa",
@@ -59,7 +59,7 @@
           "address": "BUJuh",
           "fingerprint": null,
           "parentIds": [
-            1
+            1, 2
           ]
         },
         {
@@ -120,6 +120,15 @@
           "gender": "Male",
           "relationship": "Mother",
           "id": 1
+        },
+        {
+          "idNo": "345678",
+          "name": "Fatuma Bashow",
+          "phone": "0725375325",
+          "email": "antonymwangikr@gmail.com",
+          "gender": "Male",
+          "relationship": "Mother",
+          "id": 2
         }
       ],
       "schedule": {
@@ -206,7 +215,7 @@
         },
         "holidays": [
           {
-            "name": "Mashujaa DAy",
+            "name": "Mashujaa Day",
             "startDate": "2024-10-20",
             "endDate": "2024-10-20",
             "repeatType": "yearly"
@@ -283,6 +292,29 @@
                 "method": "manual"
               }
             ]
+          },
+          {
+            "date": "2024-10-24",
+            "records": [
+              {
+                "studentId": 1,
+                "status": "absent",
+                "time": "17:04",
+                "method": "manual"
+              },
+              {
+                "studentId": 2,
+                "status": "present",
+                "time": "17:04",
+                "method": "manual"
+              },
+              {
+                "studentId": 3,
+                "status": "late",
+                "time": "17:04",
+                "method": "manual"
+              }
+            ]
           }
         ],
         "teachers": [
@@ -326,6 +358,17 @@
                 "teacherId": 1,
                 "status": "absent",
                 "time": "16:39",
+                "method": "manual"
+              }
+            ]
+          },
+          {
+            "date": "2024-10-24",
+            "records": [
+              {
+                "teacherId": 1,
+                "status": "present",
+                "time": "17:05",
                 "method": "manual"
               }
             ]

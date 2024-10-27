@@ -105,10 +105,10 @@ const SchoolProfileEdit = () => {
     <div className="school-edit-container">
       <h2>Edit School Information</h2>
       <form onSubmit={handleSave}>
-        <div className="form-group">
+        <div className="school-edit-form-group">
           <h3>School Information</h3>
           {Object.entries(editedSchool.schoolInfo).map(([key, value]) => (
-            <div key={key} className="input-group">
+            <div key={key} className="school-edit-input-group">
               <label htmlFor={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
               <input
                 id={key}
@@ -121,12 +121,12 @@ const SchoolProfileEdit = () => {
           ))}
         </div>
 
-        <div className="form-group">
+        <div className="school-edit-form-group">
           <h3>Classes and Streams</h3>
           {editedSchool.classes.map((cls, classIndex) => (
-            <div key={classIndex} className="streams-container">
+            <div key={classIndex} className="school-edit-streams-container">
               <h4>{cls.name} Streams</h4>
-              <div className="streams-list">
+              <div className="school-edit-streams-list">
                 {cls.streams.map((stream, streamIndex) => (
                   <div key={streamIndex} className="stream-item">
                     <input

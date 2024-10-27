@@ -19,25 +19,25 @@
     font-size: 1.5rem;
 }
 
-.form-group {
+.school-edit-form-group {
     margin-bottom: 2rem;
     padding: 1.5rem;
     background-color: #f8fafc;
     border-radius: 6px;
 }
 
-.input-group {
+.school-edit-input-group {
     margin-bottom: 1.5rem;
 }
 
-.input-group label {
+.school-edit-input-group label {
     display: block;
     margin-bottom: 0.5rem;
     color: #4a5568;
     font-weight: 500;
 }
 
-.input-group input {
+.school-edit-input-group input {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #e2e8f0;
@@ -46,13 +46,13 @@
     transition: border-color 0.2s ease;
 }
 
-.input-group input:focus {
+.school-edit-input-group input:focus {
     outline: none;
     border-color: #4299e1;
     box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
 }
 
-.streams-container {
+.school-edit-streams-container {
     margin-bottom: 2rem;
     padding: 1rem;
     background-color: #fff;
@@ -60,25 +60,25 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.streams-container h4 {
+.school-edit-streams-container h4 {
     color: #2d3748;
     margin-bottom: 1rem;
     font-size: 1.25rem;
 }
 
-.streams-list {
+.school-edit-streams-list {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.stream-item {
+.school-edit-streams-list .stream-item {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.stream-item input {
+.school-edit-streams-list .stream-item input {
     flex: 1;
     padding: 0.75rem;
     border: 1px solid #e2e8f0;
@@ -86,7 +86,7 @@
     font-size: 1rem;
 }
 
-.remove-stream {
+.school-edit-streams-list .remove-stream {
     background: none;
     border: none;
     color: #e53e3e;
@@ -96,11 +96,11 @@
     transition: background-color 0.2s ease;
 }
 
-.remove-stream:hover {
+.school-edit-streams-list .remove-stream:hover {
     background-color: #fff5f5;
 }
 
-.add-stream {
+.school-edit-streams-list .add-stream {
     background-color: #48bb78;
     color: white;
     border: none;
@@ -111,7 +111,7 @@
     transition: background-color 0.2s ease;
 }
 
-.add-stream:hover {
+.school-edit-streams-list .add-stream:hover {
     background-color: #38a169;
 }
 

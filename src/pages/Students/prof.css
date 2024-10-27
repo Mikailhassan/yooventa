@@ -1,0 +1,177 @@
+.sp-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.sp-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.sp-back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+.sp-back-button:hover {
+  background: #f8fafc;
+}
+
+.sp-profile-grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .profile-grid {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.sp-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.sp-card-header {
+  margin-bottom: 16px;
+}
+
+.sp-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.sp-photo-container {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.sp-profile-photo {
+  position: relative;
+  display: inline-block;
+}
+
+.sp-profile-image {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sp-status-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 4px solid white;
+}
+
+.sp-status-active {
+  background-color: #22c55e;
+}
+
+.sp-status-inactive {
+  background-color: #9ca3af;
+}
+
+.sp-student-info {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.sp-student-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.sp-admission-number {
+  color: #6b7280;
+}
+
+.sp-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.sp-info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sp-info-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.sp-info-value {
+  font-weight: 500;
+}
+
+.sp-parent-card {
+  grid-column: 1 / -1;
+}
+
+.sp-parent-info {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .parent-info {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sp-button-container {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+}
+
+.sp-primary-button {
+  background-color: #2563eb;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .primary-button {
+    width: auto;
+  }
+}
+
+.primary-button:hover {
+  background-color: #1d4ed8;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}

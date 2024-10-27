@@ -14,7 +14,7 @@ import TeacherProfileEdit from './pages/Teachers/TeacherProfileEdit';
 import EditParent from './pages/Parents/EditParent';
 import SchoolProfileEdit from './pages/School/SchoolProfileEdit';
 import ParentList from './pages/Parents/ParentList';
-import StudentProfile from './pages/Students/StudentProfile';
+import StudentProfile from './pages/Students/Profile';
 import ParentProfile from './pages/Parents/ParentProfile';
 import AttendanceSystem from './pages/Attendance/AttendanceSystem';
 import ScheduleManager from './pages/Attendance/ScheduleManager';
@@ -40,7 +40,7 @@ const App = () => {
               <Route path="/register-student" element={<StudentRegistration />}/>
               <Route path="/student-profile/:studentId" element={<StudentProfile />}/>
               <Route path="/all-students" element={<StudentList />}/>
-              <Route path="/edit-parent/:studentId" element={<EditParent />}/>
+              <Route path="/edit-student/:studentId" element={<EditParent />}/>
 
 
               <Route path="/regsiter-teacher" element={<TeacherRegistration />}/>
