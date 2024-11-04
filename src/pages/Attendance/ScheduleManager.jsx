@@ -12,7 +12,7 @@ const ScheduleManager = () => {
   const repeatTypes = ['none', 'weekly', 'monthly', 'yearly'];
 
   useEffect(() => {
-    fetch('http://localhost:4000/schools/580e')
+    fetch('https://server-roan-three-33.vercel.app/schools')
       .then(response => response.json())
       .then(data => {
         setSchool(data);

@@ -19,7 +19,7 @@ const SchoolProfileEdit = () => {
 
   const fetchSchoolData = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/schools/${id}`);
+      const response = await fetch(`https://server-roan-three-33.vercel.app/schools${id}`);
       if (!response.ok) {
         throw new Error('Failed to fetch school data');
       }
